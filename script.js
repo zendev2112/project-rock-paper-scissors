@@ -5,7 +5,20 @@
 //3 - NEW function called game(). The function 2- should be called inside this function to: a) keep score b) reports a winner or a loser c) use console.log to display the results of each round. d) use prompt() to get input from the user.
 
 
-function computerSelection(){
-    let options = ["rock", "paper", "scissors"]
-    return options[0]
+function getComputerChoice(){
+    let options = ["rock", "paper", "scissors"];
+    return options[Math.floor(Math.random()*options.length)]
 }
+
+function getPlayerChoice () {
+    return (prompt("Choose your weapon").toLowerCase());
+}
+
+function playRound(computer, player){
+    console.log (`Computer: ${computer} - Player: ${player} `);
+    if (computer || player === "rock"){
+        return ("is rock")
+    } else {return ("other")}
+    
+}
+
