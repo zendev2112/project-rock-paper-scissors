@@ -15,10 +15,12 @@ function getPlayerChoice () {
 }
 
 function playRound(computer, player){
-    console.log (`Computer: ${computer} - Player: ${player} `);
-    if (computer || player === "rock"){
-        return ("is rock")
-    } else {return ("other")}
+     let computerChoice = computer;
+     let playerChoice = player;
+    if (playerChoice === "rock"){
+        console.log("rock")
+    }
+
     
 }
 
