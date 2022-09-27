@@ -1,45 +1,73 @@
-//1 - getComputerChoice - Randomly return rock, paper or scissors. Is the function to make the computer play.
+function playRound(computer, player) {
 
-//2 - Function to play a single round of rps, playRound. It should take two parameters: playerSelection (case sensitive) and computerSelection. It should return a string that declares the winner. 
+    let computerScore = 0;
+    let playerScore = 0;
 
-//3 - NEW function called game(). The function 2- should be called inside this function to: a) keep score b) reports a winner or a loser c) use console.log to display the results of each round. d) use prompt() to get input from the user.
+    for (let i = 0; i < 5; i++) {
+
+        function getComputerChoice() {
+            let options = ["rock", "paper", "scissors"];
+            return options[Math.floor(Math.random() * options.length)]
+        }
+
+        function getPlayerChoice() {
+            return (prompt("Choose your weapon").toLowerCase());
+        }
+
+        computer = getComputerChoice();
+        player = getPlayerChoice();
+
+        console.log(`Computer: ${computer} - Player: ${player}`)
+        if (computer === "rock" && player === "scissors") {
+            console.log("Computer wins. Rock beats scissors");
+            computerScore += 1;
+        }
+        else if (computer === "scissors" && player === "rock") {
+
+            console.log("You win. Rock beats scissors");
+            playerScore += 1;
+
+        }
+        else if (computer === "scissors" && player === "paper") {
+
+            console.log("Computer wins. Scissors beats paper");
+            computerScore += 1;
+
+        }
+        else if (computer === "paper" && player === "scissors") {
+
+            console.log("You win. Scissors beats paper");
+            playerScore += 1;
+        }
+        else if (computer === "paper" && player === "rock") {
+
+            console.log("Computer wins. Paper beats rock");
+            computerScore += 1;
+        }
+        else if (computer === "rock" && player === "paper") {
+
+            console.log("You win. Paper beats rock");
+            playerScore += 1;
+
+        } else {
+            console.log("It's a tie");
+            computerScore += 0;
+            playerScore += 0;
+
+        };
 
 
-function getComputerChoice(){
-    let options = ["rock", "paper", "scissors"];
-    return options[Math.floor(Math.random()*options.length)]
-}
-
-function getPlayerChoice () {
-    return (prompt("Choose your weapon").toLowerCase());
-}
-
-function playRound(computer, player){
-     let computerChoice = computer;
-     let playerChoice = player;
-     console.log(`Computer: ${computerChoice} - Player: ${playerChoice}`)
-     if (computerChoice === "rock" && playerChoice === "scissors"){
-        return ("Computer wins. Rock beats scissors")
-     }
-     else if (computerChoice === "scissors" && playerChoice === "rock"){
-        return ("You win. Rock beats scissors")
-     }
-     else if (computerChoice === "scissors" && playerChoice === "paper"){
-        return ("Computer wins. Scissors beats paper")
-     }
-     else if (computerChoice === "paper" && playerChoice === "scissors"){
-        return ("You win. Scissors beats paper")
-     }
-     else if (computerChoice === "paper" && playerChoice === "rock"){
-        return ("Computer wins. Paper beats rock")
-     }
-     else if (computerChoice === "rock" && playerChoice === "paper"){
-        return ("You win. Paper beats rock")
-     } else {return "Its a tie"}
-     
     }
 
-playRound(getComputerChoice(), getPlayerChoice())
+    return (`Final score: Computer: ${computerScore} - Player: ${playerScore}`)
+
+}
+
+
+
+
+
+
 
     
 
